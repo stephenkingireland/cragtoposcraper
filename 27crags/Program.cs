@@ -18,32 +18,68 @@ namespace _27crags
         static void Main(string[] args)
         {
 
-            var fileName = "glendo.json";
+            var fileName = "glendo";
 
-            var rawtext = File.ReadAllText(Path.Combine(Environment.CurrentDirectory, @"Data\", fileName));
+            string rawtext = ExtractData(fileName);
 
-
-            var json = Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Climb>>(rawtext);
+            var json = ConvertFromJson(rawtext);
 
             var convertedClimbs = new List<Climb>();
 
-            foreach(var climb in json)
+            foreach (var climb in json)
             {
-                if(climb.grade.StartsWith("f"))
+                if (climb.grade.StartsWith("f"))
                 {
                     continue;
                 }
                 var grade = climb.grade.Trim().Split(' ')[0];
                 climb.frenchGrade = ConvertGrade(grade);
 
+                climb.grade = climb.grade.Replace("*", "").Trim();
+
                 convertedClimbs.Add(climb);
             }
 
+            var jsonString = ConvertToJson(convertedClimbs);
+
+            InjectToJavascript(jsonString, fileName);
+
+        }
+
+        private static void InjectToJavascript(string jsonString, string fileName)
+        {
+            var fullFileName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\", fileName + ".js");
+            var fullTemplateName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\templates\", "inputTempate.js");
 
 
-            var convertedJsonString = Newtonsoft.Json.JsonConvert.SerializeObject(convertedClimbs);
 
-            json.First();
+            if (File.Exists(fullFileName))
+                File.Delete(fullFileName);
+
+            var templateText = File.ReadAllText(fullTemplateName);
+
+            var javascriptContents = templateText.Replace("{{jsonData}}", jsonString.Replace("'",""));
+
+            using (var writer = File.CreateText(fullFileName))
+            {
+                writer.WriteLine(javascriptContents);
+            }
+
+        }
+
+        private static string ConvertToJson(List<Climb> convertedClimbs)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(convertedClimbs);
+        }
+
+        private static IList<Climb> ConvertFromJson(string rawtext)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Climb>>(rawtext);
+        }
+
+        private static string ExtractData(string fileName)
+        {
+            return File.ReadAllText(Path.Combine(Environment.CurrentDirectory, @"Data\json\", fileName + ".json"));
         }
 
         public static String ConvertGrade(String britTechGrade)

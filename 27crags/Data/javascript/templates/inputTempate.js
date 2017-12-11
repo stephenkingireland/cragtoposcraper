@@ -1,4 +1,4 @@
-﻿var data = {0};
+﻿var data = '{{jsonData}}';
 
 var count = 1;
 
