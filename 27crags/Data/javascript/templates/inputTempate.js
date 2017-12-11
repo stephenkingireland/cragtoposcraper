@@ -2,7 +2,9 @@
 
 var count = 1;
 
-data.each(function (i, climb) {
+var climbs = $.parseJSON(data);
+
+$(climbs).each(function (i, climb) {
 
     $('[id$="' + count + '_name"]').val(climb.name);
 
