@@ -59,10 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="Data\dalkey.json">
+    <Content Include="Data\javascript\templates\inputTempate.js" />
+    <Content Include="Data\json\dalkey.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\glendo.json">
+    <Content Include="Data\json\glendo.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
