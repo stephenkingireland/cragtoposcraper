@@ -59,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <Content Include="Data\javascript\scraper.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\javascript\templates\inputTempate.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
