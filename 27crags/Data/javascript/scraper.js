@@ -25,3 +25,39 @@ $(".climb").each(
 )
 
 JSON.stringify(list);
+
+
+
+
+
+
+
+
+
+
+
+$(".climb_info_button").each(function (i, e) {
+
+    var s = $(this).parent().parent().data("id");
+
+    var i = $.ajax({
+        url: API + "/site/logbook/v1/climb_ukc/",
+        method: "GET",
+        data: {
+            id: s,
+            crag: id,
+            auth: auth
+        }
+    });
+
+
+    i.done(function (t) {
+
+        console.log(t);
+
+    });
+
+
+});
+
+
