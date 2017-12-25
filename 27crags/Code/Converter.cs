@@ -57,5 +57,31 @@ namespace _27crags.Code
             return britToFrenchConverstionChart.Keys.Contains(britTechGrade.Split(',')[0]);
         }
 
+        public int BritGradePosition(String line)
+        {
+            foreach (var grade in britToFrenchConverstionChart.Keys)
+            {
+                if (line.Contains(" " + grade + " "))
+                {
+                    return line.IndexOf(grade);
+                }
+            }
+
+            throw new EntryPointNotFoundException("Cant Find the grade");
+        }
+
+        public bool HasBritGrade(String line)
+        {
+            foreach(var grade in britToFrenchConverstionChart.Keys)
+            {
+                if (line.Contains(" " + grade + " "))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
     }
 }

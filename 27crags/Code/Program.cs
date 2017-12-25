@@ -1,29 +1,23 @@
 ﻿using _27crags.Code;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _27crags
 {
     class Program
     {
 
-
-       
-
         static void Main(string[] args)
         {
             var converter = new Converter();
+            var extractor = new Extractor();
 
 
             var fileName = "ailladie";
 
-            string rawtext = ExtractData(fileName);
+
+            string rawtext = extractor.ExtractJsonData(fileName);
 
             var json = ConvertFromJson(rawtext);
 
@@ -82,10 +76,7 @@ namespace _27crags
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Climb>>(rawtext);
         }
 
-        private static string ExtractData(string fileName)
-        {
-            return File.ReadAllText(Path.Combine(Environment.CurrentDirectory, @"Data\json\", fileName + ".json"));
-        }
+
 
     }
 
