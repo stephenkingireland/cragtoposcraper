@@ -73,6 +73,9 @@
     <Content Include="Data\text\Pollnalong.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\text\Muckish.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\text\Tory Island.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
