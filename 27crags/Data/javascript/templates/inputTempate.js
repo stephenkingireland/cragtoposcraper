@@ -28,6 +28,7 @@ for (var i = min; i < max && i < climbs.length ; i++) {
     $('[id$="name"]').last().focus()
 
     count++;
-
-
 }
+
+//just checking length to see if were done
+climbs.length
