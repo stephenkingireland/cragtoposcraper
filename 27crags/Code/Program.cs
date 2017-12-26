@@ -10,41 +10,40 @@ namespace _27crags
 
         static void Main(string[] args)
         {
-            var converter = new Converter();
             var extractor = new Extractor();
+            var converter = new Converter();
 
 
-            var fileName = "ailladie";
+            string rawtext = "";
+            IList<Climb> rawClimbs;
 
 
-            string rawtext = extractor.ExtractJsonData(fileName);
-
-            var json = ConvertFromJson(rawtext);
-
-            var convertedClimbs = new List<Climb>();
-
-            foreach (var climb in json)
+            foreach (var fileName in extractor.ExtractJsonFilePaths())
             {
-                var grade = climb.grade.Trim().Split(' ')[0];
+                rawtext = extractor.ExtractData(fileName);
+                rawClimbs = converter.ConvertFromJson(rawtext);
 
-                if (climb.grade.StartsWith("f") || !converter.IsBritGrade(grade))
-                {
-                    continue;
-                }
+                var convertedClimbs = converter.ConvertClimbs(rawClimbs);
 
-                climb.frenchGrade = converter.ConvertBritGrade(grade);
+                var jsonString = converter.ConvertToJson(convertedClimbs);
 
-                climb.grade = climb.grade.Replace("*", "").Trim();
-
-                convertedClimbs.Add(climb);
+                InjectToJavascript(jsonString, fileName);
             }
 
-            var jsonString = ConvertToJson(convertedClimbs);
+            foreach (var fileName in extractor.ExtractTextFilePaths())
+            {
+                rawtext = extractor.ExtractData(fileName);
+                rawClimbs = converter.ConvertFromText(rawtext);
 
-            InjectToJavascript(jsonString, fileName);
+                var convertedClimbs = converter.ConvertClimbs(rawClimbs);
 
+                var jsonString = converter.ConvertToJson(convertedClimbs);
+
+                InjectToJavascript(jsonString, fileName);
+            }
         }
 
+       
         private static void InjectToJavascript(string jsonString, string fileName)
         {
             var fullFileName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\", fileName + ".js");
@@ -65,18 +64,6 @@ namespace _27crags
             }
 
         }
-
-        private static string ConvertToJson(List<Climb> convertedClimbs)
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(convertedClimbs);
-        }
-
-        private static IList<Climb> ConvertFromJson(string rawtext)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Climb>>(rawtext);
-        }
-
-
 
     }
 

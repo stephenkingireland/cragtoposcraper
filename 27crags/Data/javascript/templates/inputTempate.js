@@ -14,7 +14,9 @@ $(climbs).each(function (i, climb) {
 
     $('[id$="' + count + '_grade_info"]').val(climb.grade);
 
-    $('[id$="' + count + '_sector_id"] option:contains(' + climb.section + ')').attr('selected', true);
+    if (climb.section) {
+        $('[id$="' + count + '_sector_id"] option:contains(' + climb.section + ')').attr('selected', true);
+    }
 
     $('[id$="' + count + '_grade"]').val(climb.frenchGrade)
 
