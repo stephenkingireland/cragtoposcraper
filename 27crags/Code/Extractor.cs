@@ -21,7 +21,7 @@ namespace _27crags.Code
         {
             this.workingDirectory = workingDirectory;
             jsonWorkingDirectory = Path.Combine(workingDirectory, jsonPath);
-            textWorkingDirectory = Path.Combine(workingDirectory, jsonPath);
+            textWorkingDirectory = Path.Combine(workingDirectory, textPath);
         }
 
         public Extractor() : this(Environment.CurrentDirectory)

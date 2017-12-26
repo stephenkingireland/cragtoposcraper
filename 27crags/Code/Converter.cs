@@ -32,6 +32,7 @@ namespace _27crags.Code
                 {"Diff", "3"},
                 {"MS", "5"},
                 {"S", "5"},
+                {"VS", "5"},
                 {"HS", "5"},
                 {"MVS", "5"},
                 {"HVS", "5+"},
@@ -86,6 +87,7 @@ namespace _27crags.Code
             {"MS"},
             {"S"},
             {"HS"},
+            {"VS"},
             {"MVS"},
             {"HVS"},
             {"E1"},
@@ -179,18 +181,18 @@ namespace _27crags.Code
         {
             var climbs = new List<Climb>();
 
-            foreach (var myString in rawtext.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            foreach (var line in rawtext.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                if (!HasBritGrade(rawtext))
+                if (!HasBritGrade(line))
                 {
                     continue;
                 }
 
-                var grade = GetBritGrade(rawtext);
+                var grade = GetBritGrade(line);
 
-                var gradePos = BritGradePosition(rawtext, grade);
+                var gradePos = BritGradePosition(line, grade);
 
-                var name = rawtext.Substring(0, gradePos);
+                var name = line.Substring(0, gradePos - 1);
 
                 climbs.Add(new Climb { grade = grade, name = name });
             }
