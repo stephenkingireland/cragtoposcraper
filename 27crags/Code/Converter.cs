@@ -23,7 +23,9 @@ namespace _27crags.Code
                 {"7b", "8c"},
                 {"M", "3"},
                 {"Mod", "3"},
+                {"V.Diff", "4+"},
                 {"V. Diff", "4+"},
+                {"V Diff", "4+"},
                 {"VD", "4+"},
                 {"D", "3"},
                 {"Diff", "3"},
@@ -33,6 +35,7 @@ namespace _27crags.Code
                 {"HS", "5"},
                 {"MVS", "5"},
                 {"HVS", "5+"},
+                { "HVS/VS", "5+"},
                 {"E1", "6a"},
                 {"E3", "6c"},
                 {"E2", "6b"},
@@ -74,7 +77,9 @@ namespace _27crags.Code
         { 
             {"M"},
             {"Mod"},
+            {"V.Diff"},
             {"V. Diff"},
+            {"V Diff"},
             {"VD"},
             {"D"},
             {"Diff"},
@@ -84,6 +89,7 @@ namespace _27crags.Code
             {"VS"},
             {"MVS"},
             {"HVS"},
+            {"VS/HVS"},
             {"E1"},
             {"E3"},
             {"E2"},
@@ -140,6 +146,14 @@ namespace _27crags.Code
                 if (line.Contains(" " + adjgrade + " "))
                 {
                     return adjgrade;
+                }
+            }
+
+            foreach (var techgrade in britTechGrades)
+            {
+                if (line.Contains(" " + techgrade + " " ))
+                {
+                    return techgrade;
                 }
             }
 
