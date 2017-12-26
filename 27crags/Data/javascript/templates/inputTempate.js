@@ -1,10 +1,16 @@
 ﻿var data = '{{jsonData}}';
 
 var count = 1;
+var max = 50;
+var min = 1;
+
 
 var climbs = $.parseJSON(data);
 
-$(climbs).each(function (i, climb) {
+
+for (var i = min; i < max && i < climbs.length ; i++) {
+
+    var climb = climbs[i];
 
     $('[id$="' + count + '_name"]').val(climb.name);
 
@@ -22,6 +28,6 @@ $(climbs).each(function (i, climb) {
     $('[id$="name"]').last().focus()
 
     count++;
-});
 
 
+}
