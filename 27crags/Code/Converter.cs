@@ -9,9 +9,6 @@ namespace _27crags.Code
 
         private Dictionary<String, String> britToFrenchConverstionChart = new Dictionary<String, String>()
             {
-                {"1", "1"},
-                {"2", "2"},
-                {"3", "3"},
                 {"3c", "3"},
                 {"4a", "4"},
                 {"4b", "5"},
@@ -52,9 +49,6 @@ namespace _27crags.Code
 
         private List<String> britTechGrades = new List<String>()
             {
-                {"1"},
-                {"2"},
-                {"3"},
                 {"3a"},
                 {"3b"},
                 {"3c"},

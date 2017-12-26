@@ -10,8 +10,6 @@ $(climbs).each(function (i, climb) {
 
     $('[id$="' + count + '_genre"]').val("Traditional");
 
-    $('[id$="' + count + '_grade"]').val(climb.frenchGrade);
-
     $('[id$="' + count + '_grade_info"]').val(climb.grade);
 
     if (climb.section) {
