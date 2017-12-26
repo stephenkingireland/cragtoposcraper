@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Climb.cs" />
     <Compile Include="Code\Converter.cs" />
     <Compile Include="Code\Extractor.cs" />
     <Compile Include="Code\Program.cs" />
