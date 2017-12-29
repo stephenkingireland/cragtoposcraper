@@ -1,4 +1,7 @@
 ﻿using _27crags.Code;
+using _27crags.Code.Converter;
+using _27crags.Code.Extractor;
+using _27crags.Code.Injector;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,60 +13,47 @@ namespace _27crags
 
         static void Main(string[] args)
         {
-            var extractor = new Extractor();
-            var converter = new Converter();
+            var program = new Program();
 
-
-            string rawtext = "";
-            IList<Climb> rawClimbs;
-
-
-            foreach (var fileName in extractor.ExtractJsonFilePaths())
-            {
-                rawtext = extractor.ExtractData(fileName);
-                rawClimbs = converter.ConvertFromJson(rawtext);
-
-                var convertedClimbs = converter.ConvertClimbs(rawClimbs);
-
-                var jsonString = converter.ConvertToJson(convertedClimbs);
-
-                InjectToJavascript(jsonString, fileName);
-            }
-
-            foreach (var fileName in extractor.ExtractTextFilePaths())
-            {
-                rawtext = extractor.ExtractData(fileName);
-                rawClimbs = converter.ConvertFromText(rawtext);
-
-                var convertedClimbs = converter.ConvertClimbs(rawClimbs);
-
-                var jsonString = converter.ConvertToJson(convertedClimbs);
-
-                InjectToJavascript(jsonString, fileName);
-            }
+            program.Run();
         }
+
+        public void Run()
+        {
+
+            DoWork<JsonFileExtractor, JSInjector>(new JsonClimbExtractor(new BritGradeConverter()));
+            DoWork<TextFileExtractor, JSInjector>(new TextClimbExtractor(new BritGradeConverter()));
+
+        }
+
+
+        public void DoWork<T, T1>(IClimbExtractor climbExtractor)
+            where T: IFileExtractor        
+            where T1 : IInjector
+        {
+            IFileExtractor extractor = default(T);
+            IInjector injector = default(T1);
+
+            foreach (var fileName in extractor.ExtractFilePaths())
+            {
+                var climbs = GetClimbs(extractor, climbExtractor, fileName);
+
+                injector.Inject(climbs, fileName);
+            }
+
+        }
+
+        public IEnumerable<Climb> GetClimbs<T, T2>(T fileExtract, T2 climbExtract, string fileName) where T : IFileExtractor
+                                                                                                    where T2 : IClimbExtractor
+        {
+            var climbData = fileExtract.ExtractData(fileName);
+
+            return climbExtract.ExtractClimbs(climbData);
+        }
+
 
        
-        private static void InjectToJavascript(string jsonString, string fileName)
-        {
-            var fullFileName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\", fileName + ".js");
-            var fullTemplateName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\templates\", "inputTempate.js");
-
-
-
-            if (File.Exists(fullFileName))
-                File.Delete(fullFileName);
-
-            var templateText = File.ReadAllText(fullTemplateName);
-
-            var javascriptContents = templateText.Replace("{{jsonData}}", jsonString.Replace("'",""));
-
-            using (var writer = File.CreateText(fullFileName))
-            {
-                writer.WriteLine(javascriptContents);
-            }
-
-        }
+        
 
     }
 }

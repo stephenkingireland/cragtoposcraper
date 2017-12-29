@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
-namespace _27crags.Code
+namespace _27crags.Code.Converter
 {
-    public class Converter
+    public class BritGradeConverter : IGradeConverter
     {
-
         private Dictionary<String, String> britToFrenchConverstionChart = new Dictionary<String, String>()
             {
                 {"3c", "3"},
@@ -71,12 +69,12 @@ namespace _27crags.Code
                 {"7c"},
                 {"8a"},
                 {"8b"},
-               
+
 
             };
 
         private List<String> britAdjGrades = new List<String>()
-        { 
+        {
             {"M"},
             {"Mod"},
             {"V.Diff"},
@@ -107,32 +105,13 @@ namespace _27crags.Code
             {"HXS"},
             };
 
-        public String ConvertBritGrade(String britTechGrade)
+
+        public string ConvertGrade(string gradeToConvert)
         {
-
-            return britToFrenchConverstionChart[britTechGrade.Split(',')[0]];
-
+            return britToFrenchConverstionChart[gradeToConvert.Split(',')[0]];
         }
 
-
-        public bool IsBritGrade(String britTechGrade)
-        {
-            return britToFrenchConverstionChart.Keys.Contains(britTechGrade.Split(',')[0]);
-        }
-
-        public int BritGradePosition(String line, string grade)
-        {
-
-                if (line.Contains(grade))
-                {
-                    return line.LastIndexOf(grade);
-                }
-
-            throw new MissingMemberException("Cant Find the grade");
-        }
-
-
-        public string GetBritGrade(string line)
+        public string GetGrade(string line)
         {
             foreach (var adjgrade in britAdjGrades)
             {
@@ -155,7 +134,7 @@ namespace _27crags.Code
 
             foreach (var techgrade in britTechGrades)
             {
-                if (line.Contains(" " + techgrade + " " ))
+                if (line.Contains(" " + techgrade + " "))
                 {
                     return techgrade;
                 }
@@ -164,11 +143,11 @@ namespace _27crags.Code
             throw new MissingMemberException("Cant find the grade");
         }
 
-        public bool HasBritGrade(String line)
+        public bool HasGrade(string line)
         {
-            foreach(var grade in britToFrenchConverstionChart.Keys)
+            foreach (var grade in britToFrenchConverstionChart.Keys)
             {
-                if (line.Contains(" " + grade + " ")  && (line.EndsWith("*") || line.EndsWith("m")))
+                if (line.Contains(" " + grade + " ") && (line.EndsWith("*") || line.EndsWith("m")))
                 {
                     return true;
                 }
@@ -177,64 +156,16 @@ namespace _27crags.Code
             return false;
         }
 
-
-        public string ConvertToJson(IEnumerable<Climb> convertedClimbs)
+        public int GradePosition(String line, string grade)
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(convertedClimbs);
-        }
 
-        public IList<Climb> ConvertFromJson(string rawtext)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IList<Climb>>(rawtext);
-        }
-
-
-        public IList<Climb> ConvertFromText(string rawtext)
-        {
-            var climbs = new List<Climb>();
-
-            foreach (var line in rawtext.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            if (line.Contains(grade))
             {
-                if (!HasBritGrade(line))
-                {
-                    continue;
-                }
-
-                var grade = GetBritGrade(line);
-
-                var gradePos = BritGradePosition(line, grade);
-
-                var name = line.Substring(0, gradePos - 1);
-
-                climbs.Add(new Climb { grade = grade, name = name });
+                return line.LastIndexOf(grade);
             }
 
-            return climbs;
+            throw new MissingMemberException("Cant Find the grade");
         }
-
-
-        public IEnumerable<Climb> ConvertClimbs(IEnumerable<Climb> rawClimbs)
-        {
-            var convertedClimbs = new List<Climb>();
-
-            foreach (var climb in rawClimbs)
-            {
-                var grade = climb.grade.Trim().Split(' ')[0];
-
-                if (climb.grade.StartsWith("f") || !IsBritGrade(grade))
-                {
-                    continue;
-                }
-
-                climb.frenchGrade = ConvertBritGrade(grade);
-
-                climb.grade = climb.grade.Replace("*", "").Trim();
-
-                convertedClimbs.Add(climb);
-            }
-
-            return convertedClimbs;
-        }
-
     }
+
 }
