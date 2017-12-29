@@ -25,7 +25,7 @@ namespace _27crags.Code.Extractor
             {
                 var grade = climb.grade.Trim().Split(' ')[0];
 
-                if (climb.grade.StartsWith("f") || !converter.HasGrade(grade))
+                if (climb.grade.StartsWith("f"))
                 {
                     continue;
                 }

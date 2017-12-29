@@ -28,16 +28,19 @@ namespace _27crags.Code.Extractor
 
             foreach (var line in climbData.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
-                if (!converter.HasGrade(line))
-                {
+
+                if (!line.Trim().EndsWith("*") && !line.Trim().EndsWith("m"))
                     continue;
-                }
+                 if (!converter.HasGrade(line))
+                    continue;
 
                 var grade = converter.GetGrade(line);
 
+                
+
                 var name = ExtractClimbName(line, grade);
 
-                climbs.Add(new Climb { grade = grade, name = name });
+                climbs.Add(new Climb { grade = grade, name = name, frenchGrade = converter.ConvertGrade(grade)});
             }
 
             return climbs;

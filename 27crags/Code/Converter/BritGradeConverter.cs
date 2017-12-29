@@ -19,6 +19,7 @@ namespace _27crags.Code.Converter
                 {"6c", "7c+"},
                 {"7a", "8a+"},
                 {"7b", "8c"},
+                {"7b+", "8c"},
                 {"M", "3"},
                 {"Mod", "3"},
                 {"V.Diff", "4+"},
@@ -36,6 +37,7 @@ namespace _27crags.Code.Converter
                 {"MVS", "5"},
                 {"HVS", "5+"},
                 { "HVS/VS", "5+"},
+                { "VS/HVS", "5+"},
                 {"E1", "6a"},
                 {"E3", "6c"},
                 {"E2", "6b"},
@@ -108,7 +110,15 @@ namespace _27crags.Code.Converter
 
         public string ConvertGrade(string gradeToConvert)
         {
-            return britToFrenchConverstionChart[gradeToConvert.Split(',')[0]];
+            if(britToFrenchConverstionChart.ContainsKey(gradeToConvert))
+                return britToFrenchConverstionChart[gradeToConvert];
+
+            if (gradeToConvert.Contains(","))
+            {
+                return britToFrenchConverstionChart[gradeToConvert.Split(',')[0]];
+
+            }
+            return britToFrenchConverstionChart[gradeToConvert.Split(' ').];
         }
 
         public string GetGrade(string line)
@@ -147,7 +157,7 @@ namespace _27crags.Code.Converter
         {
             foreach (var grade in britToFrenchConverstionChart.Keys)
             {
-                if (line.Contains(" " + grade + " ") && (line.EndsWith("*") || line.EndsWith("m")))
+                if (line.Contains(" " + grade + " "))
                 {
                     return true;
                 }

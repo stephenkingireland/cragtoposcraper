@@ -7,6 +7,7 @@ namespace _27crags
         public String frenchGrade;
 
         public String grade;
+
         public String name;
         
         public String section;
