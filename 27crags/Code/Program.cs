@@ -20,19 +20,17 @@ namespace _27crags
 
         public void Run()
         {
+            var injector = new JSInjector();
+            var converter = new BritGradeConverter();
 
-            DoWork<JsonFileExtractor, JSInjector>(new JsonClimbExtractor(new BritGradeConverter()));
-            DoWork<TextFileExtractor, JSInjector>(new TextClimbExtractor(new BritGradeConverter()));
+            DoWork(new JsonFileExtractor(), new JsonClimbExtractor(converter), injector);
+            DoWork(new TextFileExtractor(), new TextClimbExtractor(converter), injector);
 
         }
 
 
-        public void DoWork<T, T1>(IClimbExtractor climbExtractor)
-            where T: IFileExtractor        
-            where T1 : IInjector
+        public void DoWork(IFileExtractor extractor, IClimbExtractor climbExtractor, IInjector injector)
         {
-            IFileExtractor extractor = default(T);
-            IInjector injector = default(T1);
 
             foreach (var fileName in extractor.ExtractFilePaths())
             {
@@ -43,8 +41,8 @@ namespace _27crags
 
         }
 
-        public IEnumerable<Climb> GetClimbs<T, T2>(T fileExtract, T2 climbExtract, string fileName) where T : IFileExtractor
-                                                                                                    where T2 : IClimbExtractor
+        public IEnumerable<Climb> GetClimbs(IFileExtractor fileExtract, IClimbExtractor climbExtract, string fileName)
+                                                                                    
         {
             var climbData = fileExtract.ExtractData(fileName);
 

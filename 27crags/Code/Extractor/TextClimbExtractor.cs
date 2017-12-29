@@ -9,7 +9,6 @@ namespace _27crags.Code.Extractor
 {
     public class TextClimbExtractor : ClimbExtractorBase, IClimbExtractor
     {
-        private IGradeConverter converter;
 
         public TextClimbExtractor(IGradeConverter converter): base(converter)
         {
