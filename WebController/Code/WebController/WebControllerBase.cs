@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebController.Code
 {
-    public class WebController
+    public class WebControllerBase
     {
 
     }
