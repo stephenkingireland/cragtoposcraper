@@ -62,6 +62,7 @@
     <Compile Include="Code\Extractor\IExtractor.cs" />
     <Compile Include="Code\Extractor\JsonClimbExtractor.cs" />
     <Compile Include="Code\Extractor\JsonFileExtractor.cs" />
+    <Compile Include="Code\Extractor\SettingsFileExtractor.cs" />
     <Compile Include="Code\Extractor\TextClimbExtractor.cs" />
     <Compile Include="Code\Extractor\TextFileExtractor.cs" />
     <Compile Include="Code\Injector\JSInjector.cs" />

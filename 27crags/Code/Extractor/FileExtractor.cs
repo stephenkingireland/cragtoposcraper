@@ -4,7 +4,7 @@ using System.IO;
 
 namespace _27crags.Code.Extractor
 {
-    internal abstract class FileExtractor : IFileExtractor
+    public abstract class FileExtractor : IFileExtractor
     {
         protected string basePath;
 

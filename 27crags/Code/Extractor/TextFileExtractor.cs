@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _27crags.Code.Extractor
 {
-    class TextFileExtractor : FileExtractor
+    public class TextFileExtractor : FileExtractor
     {
 
         protected override string FilePath => @"Data\text\";
