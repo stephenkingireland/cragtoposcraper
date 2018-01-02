@@ -5,6 +5,8 @@ using _27crags.Code.Injector;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using WebController.Code;
+using WebController.Code.Window;
 
 namespace _27crags
 {
@@ -15,7 +17,20 @@ namespace _27crags
         {
             var program = new Program();
 
-            program.Run();
+
+            program.Scrape();
+
+            //program.Run();
+        }
+
+        private void Scrape()
+        {
+
+            _27CragsWebController controller = new _27CragsWebController(new ChromeWindow());
+
+            controller.GetClimbNames("cloghoge");
+
+            controller.Cleanup();
         }
 
         public void Run()

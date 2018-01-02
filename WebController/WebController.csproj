@@ -52,7 +52,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\27Crags\27CragsProperties.cs" />
-    <Compile Include="Code\WebController.cs" />
+    <Compile Include="Code\Climb\27CragsClimb.cs" />
+    <Compile Include="Code\Climb\27CragsCrag.cs" />
+    <Compile Include="Code\WebController\WebControllerBase.cs" />
     <Compile Include="Code\Window\ChromeWindow.cs" />
     <Compile Include="Code\Window\WindowBase.cs" />
     <Compile Include="Code\Window\WindowProperty.cs" />

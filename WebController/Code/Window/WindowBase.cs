@@ -32,9 +32,14 @@ namespace WebController.Code.Window
             new SelectElement(Find(property)).SelectByText(selectText);
         }
 
-        public void GetText(WindowProperty property)
+        public string GetText(WindowProperty property)
         {
-            Find(property).GetAttribute("value");
+            return Find(property).Text;
+        }
+
+        public IEnumerable<String> GetTexts(WindowProperty property)
+        {
+            return FindAll(property).Select(i => i.Text);
         }
 
         public void Close(WindowProperty property)
@@ -45,7 +50,6 @@ namespace WebController.Code.Window
 
         private IWebElement Find(WindowProperty property)
         {
-
             switch (property.SearchType)
             {
                 case WindowPropertySearchType.Id:
@@ -56,6 +60,25 @@ namespace WebController.Code.Window
                     return driver.FindElement(By.ClassName(property.Pattern));
                 case WindowPropertySearchType.Selector:
                     return driver.FindElement(By.CssSelector(property.Pattern));
+
+                default:
+                    throw new NotFoundException("Search doesn't have type property");
+
+            }
+        }
+
+        private IEnumerable<IWebElement> FindAll(WindowProperty property) 
+        {
+            switch (property.SearchType)
+            {
+                case WindowPropertySearchType.Id:
+                    return driver.FindElements(By.Id(property.Pattern));
+                case WindowPropertySearchType.Name:
+                    return driver.FindElements(By.Name(property.Pattern));
+                case WindowPropertySearchType.Class:
+                    return driver.FindElements(By.ClassName(property.Pattern));
+                case WindowPropertySearchType.Selector:
+                    return driver.FindElements(By.CssSelector(property.Pattern));
 
                 default:
                     throw new NotFoundException("Search doesn't have type property");

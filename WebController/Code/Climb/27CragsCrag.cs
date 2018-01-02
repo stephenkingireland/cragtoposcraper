@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WebController.Code.Climb
+{
+    public abstract class WebCragBase
+    {
+        protected string cragName;
+
+        public String CragName { get => cragName; }
+
+        public abstract String CragUrl { get; }
+
+
+        public WebCragBase(string cragName)
+        {
+            this.cragName = cragName;
+        }
+
+    }
+
+    class _27CragsCrag : WebCragBase
+    {
+        public _27CragsCrag(string cragName) : base(cragName)
+        {
+        }
+
+        public override string CragUrl { get { return String.Format("https://27crags.com/crags/{0}/routelist", cragName); } }
+    }
+}

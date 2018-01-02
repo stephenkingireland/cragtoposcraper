@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebController.Code.Window
 {
-    class ChromeWindow : WindowBase
+    public class ChromeWindow : WindowBase
     {
 
         public ChromeWindow()
