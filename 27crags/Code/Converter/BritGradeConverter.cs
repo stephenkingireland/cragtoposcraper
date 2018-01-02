@@ -118,7 +118,9 @@ namespace _27crags.Code.Converter
                 return britToFrenchConverstionChart[gradeToConvert.Split(',')[0]];
 
             }
-            return britToFrenchConverstionChart[gradeToConvert.Split(' ').];
+
+            //Todo: Check this, it might be broke
+            return britToFrenchConverstionChart[gradeToConvert.Split(' ')[0]];
         }
 
         public string GetGrade(string line)
