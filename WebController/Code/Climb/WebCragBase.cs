@@ -12,8 +12,6 @@ namespace WebController.Code.Climb
 
         public String CragName { get => cragName; }
 
-        public abstract String CragUrl { get; }
-
 
         public WebCragBase(string cragName)
         {
@@ -28,6 +26,5 @@ namespace WebController.Code.Climb
         {
         }
 
-        public override string CragUrl { get { return String.Format("https://27crags.com/crags/{0}/routelist", cragName); } }
     }
 }

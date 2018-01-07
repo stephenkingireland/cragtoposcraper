@@ -32,6 +32,15 @@ namespace WebController.Code.Window
             new SelectElement(Find(property)).SelectByText(selectText);
         }
 
+        public void SelectNextPage(WindowProperty paginationProperty)
+        {
+            var paginationArea = Find(paginationProperty);
+
+            var paginationButtons = new WindowProperty() {Pattern =  "a", SearchType = WindowPropertySearchType.Selector};
+
+            FindAll(paginationButtons, paginationArea).Last().Click();
+        }
+
         public string GetText(WindowProperty property)
         {
             return Find(property).Text;
@@ -42,24 +51,36 @@ namespace WebController.Code.Window
             return FindAll(property).Select(i => i.Text);
         }
 
-        public void Close(WindowProperty property)
+
+
+        public void Close()
         {
             driver.Close();
-
         }
 
-        private IWebElement Find(WindowProperty property)
+        public bool Has(WindowProperty property, ISearchContext subElement = null)
         {
+            return FindAll(property, subElement).Count() > 1;
+        }
+
+        private IWebElement Find(WindowProperty property, ISearchContext subElement = null)
+        {
+
+            if(subElement == null)
+            {
+                subElement = driver;
+            }
+
             switch (property.SearchType)
             {
                 case WindowPropertySearchType.Id:
-                    return driver.FindElement(By.Id(property.Pattern));
+                    return subElement.FindElement(By.Id(property.Pattern));
                 case WindowPropertySearchType.Name:
-                    return driver.FindElement(By.Name(property.Pattern));
+                    return subElement.FindElement(By.Name(property.Pattern));
                 case WindowPropertySearchType.Class:
-                    return driver.FindElement(By.ClassName(property.Pattern));
+                    return subElement.FindElement(By.ClassName(property.Pattern));
                 case WindowPropertySearchType.Selector:
-                    return driver.FindElement(By.CssSelector(property.Pattern));
+                    return subElement.FindElement(By.CssSelector(property.Pattern));
 
                 default:
                     throw new NotFoundException("Search doesn't have type property");
@@ -67,18 +88,24 @@ namespace WebController.Code.Window
             }
         }
 
-        private IEnumerable<IWebElement> FindAll(WindowProperty property) 
+        private IEnumerable<IWebElement> FindAll(WindowProperty property, ISearchContext subElement = null) 
         {
+
+            if (subElement == null)
+            {
+                subElement = driver;
+            }
+
             switch (property.SearchType)
             {
                 case WindowPropertySearchType.Id:
-                    return driver.FindElements(By.Id(property.Pattern));
+                    return subElement.FindElements(By.Id(property.Pattern));
                 case WindowPropertySearchType.Name:
-                    return driver.FindElements(By.Name(property.Pattern));
+                    return subElement.FindElements(By.Name(property.Pattern));
                 case WindowPropertySearchType.Class:
-                    return driver.FindElements(By.ClassName(property.Pattern));
+                    return subElement.FindElements(By.ClassName(property.Pattern));
                 case WindowPropertySearchType.Selector:
-                    return driver.FindElements(By.CssSelector(property.Pattern));
+                    return subElement.FindElements(By.CssSelector(property.Pattern));
 
                 default:
                     throw new NotFoundException("Search doesn't have type property");
@@ -86,5 +113,19 @@ namespace WebController.Code.Window
             }
         }
 
+    }
+
+    public abstract class PaginationBase
+    {
+        protected WindowBase window;
+
+        public PaginationBase(WindowBase window)
+        {
+            this.window = window;
+        }
+
+        public abstract bool NextPage();
+        public abstract bool HasPagination();
+        public abstract void GotoPage(string pageId);
     }
 }

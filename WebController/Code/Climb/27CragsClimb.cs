@@ -12,7 +12,6 @@ namespace WebController.Code.Climb
         public String Grade     { get; set; }
         public ClimbType Type   { get; set; }
 
-    public String ClimbUrl { get { return String.Format("https://27crags.com/crags/cloghoge/routes/{}", Name); } }
     }
 
     public enum ClimbType

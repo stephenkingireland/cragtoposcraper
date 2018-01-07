@@ -28,7 +28,7 @@ namespace _27crags
 
             _27CragsWebController controller = new _27CragsWebController(new ChromeWindow());
 
-            controller.GetClimbNames("cloghoge");
+            var names = controller.GetClimbNames("glendalough");
 
             controller.Cleanup();
         }

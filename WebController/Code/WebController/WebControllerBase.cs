@@ -29,18 +29,26 @@ namespace WebController.Code
 
         public void Cleanup()
         {
-            throw new NotImplementedException();
+            window.Close();
         }
 
         public IEnumerable<string> GetClimbNames(string cragName)
         {
-            var crag = new _27CragsCrag(cragName);
+            window.GoTo(new WindowProperty() { Pattern = properties.GetCragUrl(cragName)});
 
-            window.GoTo(new WindowProperty() { Pattern = crag.CragUrl });
+            var climbNames = window.GetTexts(new WindowProperty { Pattern = properties.ClimbNameSelector, SearchType = WindowPropertySearchType.Selector });
 
+            //var pages = GetPages();
 
-            return window.GetTexts(new WindowProperty { Pattern = ".route-block a", SearchType = WindowPropertySearchType.Selector });
+           // if (pages.Count() > 1)
+          //  {
+           //     foreach(var page in pages)
+          //      {
+          //
+          //      }
+          //  }
 
+            return climbNames;
         }
 
     }
