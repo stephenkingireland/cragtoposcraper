@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace _27crags.Code.Converter
 {
@@ -46,6 +47,7 @@ namespace _27crags.Code.Converter
                 {"E6", "7c"},
                 {"E7", "8a"},
                 {"E8", "8a+"},
+                {"E9", "8b"},
                 {"XS", "?"},
                 {"MXS", "?"},
                 {"HXS", "?"},
@@ -102,6 +104,7 @@ namespace _27crags.Code.Converter
             {"E6"},
             {"E7"},
             {"E8"},
+            {"E9"},
             {"XS"},
             {"MXS"},
             {"HXS"},
@@ -119,8 +122,9 @@ namespace _27crags.Code.Converter
 
             }
 
-            //Todo: Check this, it might be broke
-            return britToFrenchConverstionChart[gradeToConvert.Split(' ')[0]];
+            var choppedGrade = gradeToConvert.Remove(gradeToConvert.LastIndexOf(" "));
+
+            return britToFrenchConverstionChart[choppedGrade.Trim()];
         }
 
         public string GetGrade(string line)

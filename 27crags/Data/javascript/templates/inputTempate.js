@@ -1,7 +1,7 @@
 ﻿var data = '{{jsonData}}';
 
 var count = 1;
-var max = 50;
+var max = 100;
 var min = 1;
 
 

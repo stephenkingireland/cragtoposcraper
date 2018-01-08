@@ -71,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\json\fairhead.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\text\Tororragaun.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
