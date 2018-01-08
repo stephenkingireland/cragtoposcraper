@@ -25,10 +25,6 @@ namespace WebController.Code._27Crags
 
         public string CragPaginatorSelector { get => ".pagination"; }
 
-        public string GetPaginationSelector(String paginationId)
-        {
-            return String.Format(".pagination [data-page='{0}']", paginationId);
-        }
 
         public string GetCragUrl(String cragName)
         {

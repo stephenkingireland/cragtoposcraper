@@ -22,7 +22,7 @@ namespace WebController.Code.Window
         public override void GotoPage(string pageId)
         {
             var paginationSearch = new WindowProperty()
-            { Pattern = properties.GetPaginationSelector((string) pageId), SearchType = WindowPropertySearchType.Selector };
+            { Pattern = GetPaginationSelector((string) pageId), SearchType = WindowPropertySearchType.Selector };
 
             window.Click(paginationSearch);
         }
@@ -30,18 +30,44 @@ namespace WebController.Code.Window
         public override bool HasPagination()
         {
             var paginationSearch = new WindowProperty()
-            { Pattern = properties.GetPaginationSelector("0"), SearchType = WindowPropertySearchType.Selector };
+            { Pattern = GetPaginationSelector("0"), SearchType = WindowPropertySearchType.Selector };
 
-            return window.Has(paginationSearch);
+
+            var pagination = window.Has(paginationSearch);
+            return pagination;
 
         }
 
         public override bool NextPage()
         {
-            var paginationSearch = new WindowProperty()
-            { Pattern = properties.GetPaginationSelector("0"), SearchType = WindowPropertySearchType.Selector };
+            var activePaginationSearch = new WindowProperty()
+            { Pattern = GetActivePaginationSelector(), SearchType = WindowPropertySearchType.Selector };
 
-            throw new NotImplementedException();
+            var nextpage = int.Parse(window.GetText(activePaginationSearch)) + 1;
+
+
+            var nextPaginationSearch = new WindowProperty()
+            { Pattern = GetPaginationSelector("" + nextpage), SearchType = WindowPropertySearchType.Selector };
+
+            if (window.Has(nextPaginationSearch))
+            {
+                window.Click(nextPaginationSearch);
+                return true;
+            }
+
+            return false;
         }
+
+        private string GetPaginationSelector(String paginationId)
+        {
+            return String.Format(".pagination [data-page='{0}']", paginationId);
+        }
+
+
+        private string GetActivePaginationSelector()
+        {
+            return ".pagination .active";
+        }
+
     }
 }

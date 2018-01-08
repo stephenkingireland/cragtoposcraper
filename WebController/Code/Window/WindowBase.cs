@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,13 @@ namespace WebController.Code.Window
 
         public void Click(WindowProperty property)
         {
-            Find(property).Click();
+            var element = Find(property);
+
+            var jse = (IJavaScriptExecutor)driver;
+
+            jse.ExecuteScript("arguments[0].scrollIntoView()", element);
+
+            element.Click();
         }
 
         public void Select(WindowProperty property, String selectText)
@@ -60,7 +67,9 @@ namespace WebController.Code.Window
 
         public bool Has(WindowProperty property, ISearchContext subElement = null)
         {
-            return FindAll(property, subElement).Count() > 1;
+            var items = FindAll(property, subElement);
+
+            return items.Count() > 0;
         }
 
         private IWebElement Find(WindowProperty property, ISearchContext subElement = null)
@@ -111,6 +120,7 @@ namespace WebController.Code.Window
                     throw new NotFoundException("Search doesn't have type property");
 
             }
+
         }
 
     }

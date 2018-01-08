@@ -5,6 +5,7 @@ using _27crags.Code.Injector;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using WebController.Code;
 using WebController.Code.Window;
 
@@ -28,7 +29,9 @@ namespace _27crags
 
             _27CragsWebController controller = new _27CragsWebController(new ChromeWindow());
 
-            var names = controller.GetClimbNames("glendalough");
+            controller.GotoCragPage("glendalough");
+
+            var names = controller.GetClimbNames().Select(i => !string.IsNullOrWhiteSpace(i));
 
             controller.Cleanup();
         }
