@@ -31,7 +31,7 @@ namespace _27crags
 
             controller.GotoCragPage("glendalough");
 
-            var names = controller.GetClimbNames().Select(i => !string.IsNullOrWhiteSpace(i));
+            var names = controller.GetClimbsOnPage();
 
             controller.Cleanup();
         }

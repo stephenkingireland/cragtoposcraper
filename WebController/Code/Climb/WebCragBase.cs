@@ -20,7 +20,7 @@ namespace WebController.Code.Climb
 
     }
 
-    class _27CragsCrag : WebCragBase
+    public class _27CragsCrag : WebCragBase
     {
         public _27CragsCrag(string cragName) : base(cragName)
         {

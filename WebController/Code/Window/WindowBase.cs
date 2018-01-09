@@ -13,17 +13,17 @@ namespace WebController.Code.Window
     {
         protected IWebDriver driver;
 
-        public void GoTo(WindowProperty property)
+        public void GoTo(IWindowProperty property)
         {
             driver.Navigate().GoToUrl(property.Pattern);
         }
 
-        public void WriteTo(WindowProperty property, String message)
+        public void WriteTo(IWindowProperty property, String message)
         {
             Find(property).SendKeys(message);
         }
 
-        public void Click(WindowProperty property)
+        public void Click(IWindowProperty property)
         {
             var element = Find(property);
 
@@ -34,12 +34,12 @@ namespace WebController.Code.Window
             element.Click();
         }
 
-        public void Select(WindowProperty property, String selectText)
+        public void Select(IWindowProperty property, String selectText)
         {
             new SelectElement(Find(property)).SelectByText(selectText);
         }
 
-        public void SelectNextPage(WindowProperty paginationProperty)
+        public void SelectNextPage(IWindowProperty paginationProperty)
         {
             var paginationArea = Find(paginationProperty);
 
@@ -48,12 +48,12 @@ namespace WebController.Code.Window
             FindAll(paginationButtons, paginationArea).Last().Click();
         }
 
-        public string GetText(WindowProperty property)
+        public string GetText(IWindowProperty property)
         {
             return Find(property).Text;
         }
 
-        public IEnumerable<String> GetTexts(WindowProperty property)
+        public IEnumerable<String> GetTexts(IWindowProperty property)
         {
             return FindAll(property).Select(i => i.Text);
         }
@@ -65,14 +65,14 @@ namespace WebController.Code.Window
             driver.Close();
         }
 
-        public bool Has(WindowProperty property, ISearchContext subElement = null)
+        public bool Has(IWindowProperty property, ISearchContext subElement = null)
         {
             var items = FindAll(property, subElement);
 
             return items.Count() > 0;
         }
 
-        private IWebElement Find(WindowProperty property, ISearchContext subElement = null)
+        public IWebElement Find(IWindowProperty property, ISearchContext subElement = null)
         {
 
             if(subElement == null)
@@ -97,7 +97,7 @@ namespace WebController.Code.Window
             }
         }
 
-        private IEnumerable<IWebElement> FindAll(WindowProperty property, ISearchContext subElement = null) 
+        public IEnumerable<IWebElement> FindAll(IWindowProperty property, ISearchContext subElement = null) 
         {
 
             if (subElement == null)

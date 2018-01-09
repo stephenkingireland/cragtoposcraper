@@ -58,6 +58,7 @@
     <Compile Include="Code\WebController\_27CragsWebController.cs" />
     <Compile Include="Code\Window\27CragsPagination.cs" />
     <Compile Include="Code\Window\ChromeWindow.cs" />
+    <Compile Include="Code\Window\IWindowProperty.cs" />
     <Compile Include="Code\Window\WindowBase.cs" />
     <Compile Include="Code\Window\WindowProperty.cs" />
     <Compile Include="Program.cs" />

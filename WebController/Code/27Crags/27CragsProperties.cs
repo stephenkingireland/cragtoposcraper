@@ -21,10 +21,15 @@ namespace WebController.Code._27Crags
 
         public string PasswordField { get => throw new NotImplementedException(); }
 
-        public string ClimbNameSelector { get => ".route-block a"; }
 
         public string CragPaginatorSelector { get => ".pagination"; }
 
+        public string ClimbRowSelector { get => ".route-list tbody tr"; }
+
+        public string ClimbNameSelector { get => ".route-block a"; }
+        public string ClimbGradeSelector { get => "td + td"; }
+        public string ClimbSectorSelector { get => ".stxt"; }
+        public string ClimbTypeSelector { get => "td + td + td"; }
 
         public string GetCragUrl(String cragName)
         {

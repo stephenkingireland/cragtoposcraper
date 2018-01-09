@@ -1,8 +1,14 @@
 ﻿namespace WebController.Code.Window
 {
-    public class WindowProperty
+    public class WindowProperty : IWindowProperty
     {
         public WindowPropertySearchType SearchType { get; set; }
+        public string Pattern { get; internal set; }
+    }
+
+    public class WindowSelectorProperty : IWindowProperty
+    {
+        public WindowPropertySearchType SearchType { get { return WindowPropertySearchType.Selector; } set { throw new System.NotImplementedException(); } }
         public string Pattern { get; internal set; }
     }
 

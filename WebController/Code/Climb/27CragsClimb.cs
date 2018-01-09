@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace WebController.Code.Climb
 {
-    class _27CragsClimb
+    public class _27CragsClimb
     {
-        public String Name      { get; set; }
-        public String Grade     { get; set; }
-        public ClimbType Type   { get; set; }
-
+        public string Name      { get; set; }
+        public string Grade     { get; set; }
+        public string Type   { get; set; }
+        public string Sector { get; internal set; }
     }
 
     public enum ClimbType
