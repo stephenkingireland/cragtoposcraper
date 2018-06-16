@@ -141,7 +141,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="App.config" />
-    <Content Include="Data\javascript\scraper.js">
+    <Content Include="Data\javascript\ukcScraper.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\javascript\templates\inputTempate.js">

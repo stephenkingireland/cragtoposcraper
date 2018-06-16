@@ -43,11 +43,12 @@ namespace WebController.Code.Window
             var activePaginationSearch = new WindowProperty()
             { Pattern = GetActivePaginationSelector(), SearchType = WindowPropertySearchType.Selector };
 
-            var nextpage = int.Parse(window.GetText(activePaginationSearch)) + 1;
+            var nextpageNumber = int.Parse(window.GetText(activePaginationSearch)) + 1;
 
+            var nextPageId = nextpageNumber - 1;
 
             var nextPaginationSearch = new WindowProperty()
-            { Pattern = GetPaginationSelector("" + nextpage), SearchType = WindowPropertySearchType.Selector };
+            { Pattern = GetPaginationSelector("" + nextPageId), SearchType = WindowPropertySearchType.Selector };
 
             if (window.Has(nextPaginationSearch))
             {

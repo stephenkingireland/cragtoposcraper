@@ -29,7 +29,7 @@ namespace _27crags
 
             _27CragsWebController controller = new _27CragsWebController(new ChromeWindow());
 
-            controller.GotoCragPage("glendalough");
+            controller.GotoCragPage("dalkey-quarry");
 
             var names = controller.GetClimbsOnPage();
 
