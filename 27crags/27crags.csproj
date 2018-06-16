@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Data\javascript\_27CragsScraper.js" />
     <Content Include="Data\json\fairhead.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
