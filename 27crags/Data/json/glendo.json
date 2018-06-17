@@ -1,625 +1,750 @@
 ﻿[
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "When gorse was a man's best friend",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Felix Infernum",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Running Blind",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 3c,4b",
     "name": "Jungle Journey",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b,4a",
     "name": "Eden Wall",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c,3c",
     "name": "Garden Of Eden",
     "section": "Far West Buttress"
   },
   {
-    "grade": "VS 4c ***",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Cracks On The Garden Of Eden",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "6a",
     "grade": "E1 5b",
     "name": "Snakebite",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD",
     "name": "Adam's Apple",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4b",
     "name": "Arividerci",
     "section": "Far West Buttress"
   },
   {
-    "grade": "E3 6b *",
+    "frenchGrade": "6c",
+    "grade": "E3 6b",
     "name": "Escapade",
     "section": "Far West Buttress"
   },
   {
-    "grade": "E1 5b **",
+    "frenchGrade": "6a",
+    "grade": "E1 5b",
     "name": "Stray Dog",
     "section": "Far West Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b",
     "name": "Variant",
     "section": "Expectancy Slab"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b",
     "name": "Georgia",
     "section": "Expectancy Slab"
   },
   {
-    "grade": "VS 4c *",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Lassitude",
     "section": "Expectancy Slab"
   },
   {
-    "grade": "VD 3c ***",
+    "frenchGrade": "4+",
+    "grade": "VD 3c",
     "name": "Expectancy",
     "section": "Expectancy Slab"
   },
   {
-    "grade": "HS 4b *",
+    "frenchGrade": "5",
+    "grade": "HS 4b",
     "name": "Adam's Rib",
     "section": "Expectancy Slab"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b",
     "name": "Solitaire",
     "section": "Expectancy Slab"
   },
   {
-    "grade": "VS 4c,3c **",
+    "frenchGrade": "5",
+    "grade": "VS 4c,3c",
     "name": "Deirdre",
     "section": "Main Face"
   },
   {
-    "grade": "E4 5c **",
+    "frenchGrade": "7a",
+    "grade": "E4 5c",
     "name": "Caroline",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "6a",
     "grade": "E1 5b",
     "name": "Love Never Dies",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "S 3c,4a,",
     "name": "Ffolly",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c,4a,",
     "name": "The Nest",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Caliph",
     "section": "Main Face"
   },
   {
-    "grade": "HS 4b ***",
+    "frenchGrade": "5",
+    "grade": "HS 4b",
     "name": "Quartz Gully",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD 3c,3c",
     "name": "Holly Tree Shunt",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4a,3c,",
     "name": "Three In One",
     "section": "Main Face"
   },
   {
-    "grade": "VS 4c **",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Prelude-Spéirbhean",
     "section": "Main Face"
   },
   {
-    "grade": "VS 4c ***",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Prelude-Nightmare",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "6a",
     "grade": "E1 5b,4b,",
     "name": "Vagabond",
     "section": "Main Face"
   },
   {
-    "grade": "HVS 5a **",
+    "frenchGrade": "5+",
+    "grade": "HVS 5a",
     "name": "Scimitar Crack",
     "section": "Main Face"
   },
   {
-    "grade": "VS 4c *",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Fanfare",
     "section": "Main Face"
   },
   {
-    "grade": "VS 4c ***",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Spillikin-Fanfare-Spéirbhean",
     "section": "Main Face"
   },
   {
-    "grade": "VS 4c ***",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Spillikin-Fanfare-Nightmare",
     "section": "Main Face"
   },
   {
-    "grade": "E3 4c,5c ***",
+    "frenchGrade": "6c",
+    "grade": "E3 4c,5c",
     "name": "Spillikin Ridge",
     "section": "Main Face"
   },
   {
-    "grade": "E5 6b ***",
+    "frenchGrade": "7b",
+    "grade": "E5 6b",
     "name": "Bathsheba",
     "section": "Main Face"
   },
   {
-    "grade": "E5 6b ***",
+    "frenchGrade": "7b",
+    "grade": "E5 6b",
     "name": "The Wake",
     "section": "Main Face"
   },
   {
-    "grade": "HVS 5a ***",
+    "frenchGrade": "5+",
+    "grade": "HVS 5a",
     "name": "Sarcophagus",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "7b",
     "grade": "E5 6b",
     "name": "Spillikin Arete",
     "section": "Main Face"
   },
   {
-    "grade": "E5 6a **",
+    "frenchGrade": "7b",
+    "grade": "E5 6a",
     "name": "Soothsayer",
     "section": "Main Face"
   },
   {
-    "grade": "E4 6a **",
+    "frenchGrade": "7a",
+    "grade": "E4 6a",
     "name": "The Far Side",
     "section": "Main Face"
   },
   {
-    "grade": "E1 5b,5b **",
+    "frenchGrade": "6a",
+    "grade": "E1 5b,5b",
     "name": "Left Wall Crack",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4b,4b,",
     "name": "Great Corner",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4b,4a,",
     "name": "Aphrodite",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "S 3c,4a,",
     "name": "Caol Uisce",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Lag Mara",
     "section": "Main Face"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD",
     "name": "Frigg",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Out On A Limb",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "New Beginnings",
     "section": "Acorn Buttress"
   },
   {
-    "grade": "HVS 5b *",
+    "frenchGrade": "5+",
+    "grade": "HVS 5b",
     "name": "Slipstream",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5a",
     "name": "Amygdala",
     "section": "Acorn Buttress"
   },
   {
-    "grade": "HS 4b *",
+    "frenchGrade": "5",
+    "grade": "HS 4b",
     "name": "Acorn Crack",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD",
     "name": "Acorn Crack Variation",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Vortex",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "S 4a",
     "name": "Inferno",
     "section": "Acorn Buttress"
   },
   {
-    "grade": "VS 4c *",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Provo",
     "section": "Acorn Buttress"
   },
   {
-    "grade": "HS 4b *",
+    "frenchGrade": "5",
+    "grade": "HS 4b",
     "name": "Facilis Descensus",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "S 4a",
     "name": "Revocare Gradum",
     "section": "Acorn Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Dig For Fire",
     "section": "Acorn Buttress"
   },
   {
-    "grade": "E4 6a **",
+    "frenchGrade": "7a",
+    "grade": "E4 6a",
     "name": "Autumn Leaf",
     "section": "Forest Ledge"
   },
   {
-    "grade": "VS 4c **",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Bruce's Corner",
     "section": "Forest Ledge"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Elbow Room",
     "section": "Forest Ledge"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD",
     "name": "Mica Wall",
     "section": "Forest Ledge"
   },
   {
-    "grade": "VS 4c **",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Jackey",
     "section": "Forest Ledge"
   },
   {
-    "grade": "VS 4c ***",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Celia",
     "section": "Forest Ledge"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c,4b",
     "name": "Rock Music",
     "section": "Forest Ledge"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Aisling Arête",
     "section": "Forest Ledge"
   },
   {
-    "grade": "E1 5b **",
+    "frenchGrade": "6a",
+    "grade": "E1 5b",
     "name": "Concrete Wallflower",
     "section": "Forest Ledge"
   },
   {
-    "grade": "VS 4c **",
+    "frenchGrade": "5",
+    "grade": "VS 4c",
     "name": "Lethe",
     "section": "Forest Ledge"
   },
   {
-    "grade": "HVS 5b *",
+    "frenchGrade": "5+",
+    "grade": "HVS 5b",
     "name": "Lethe Direct",
     "section": "Forest Ledge"
   },
   {
-    "grade": "VS 4c,4a, **",
+    "frenchGrade": "5",
+    "grade": "VS 4c,4a,",
     "name": "Forest Rhapsody",
     "section": "East Wing"
   },
   {
-    "grade": "E2 5c *",
+    "frenchGrade": "6b",
+    "grade": "E2 5c",
     "name": "Photo Finish",
     "section": "East Wing"
   },
   {
-    "grade": "E1 4b,5a, *",
+    "frenchGrade": "6a",
+    "grade": "E1 4b,5a,",
     "name": "Ifreann",
     "section": "East Wing"
   },
   {
-    "grade": "HVS 5b ***",
+    "frenchGrade": "5+",
+    "grade": "HVS 5b",
     "name": "Ifreann Direct",
     "section": "East Wing"
   },
   {
-    "grade": "E1 5b **",
+    "frenchGrade": "6a",
+    "grade": "E1 5b",
     "name": "Ifreann Arete",
     "section": "East Wing"
   },
   {
+    "frenchGrade": "6a",
     "grade": "E1 5b",
     "name": "Lara",
     "section": "East Wing"
   },
   {
-    "grade": "VS 5a *",
+    "frenchGrade": "5",
+    "grade": "VS 5a",
     "name": "Bike No Saddle",
     "section": "East Wing"
   },
   {
-    "grade": "E1 5b *",
+    "frenchGrade": "6a",
+    "grade": "E1 5b",
     "name": "Boru",
     "section": "East Wing"
   },
   {
+    "frenchGrade": "5",
     "grade": "S 3c,4a,",
     "name": "Ruth's Chimney",
     "section": "East Wing"
   },
   {
-    "grade": "E2 5c,4c **",
+    "frenchGrade": "6b",
+    "grade": "E2 5c,4c",
     "name": "Hogh Profile",
     "section": "East Wing"
   },
   {
-    "grade": "E1 4a,5b **",
+    "frenchGrade": "6a",
+    "grade": "E1 4a,5b",
     "name": "Sebastian",
     "section": "East Wing"
   },
   {
-    "grade": "E4 6b **",
+    "frenchGrade": "7a",
+    "grade": "E4 6b",
     "name": "Hemlock And After",
     "section": "East Wing"
   },
   {
-    "grade": "E3 3c,5c, **",
+    "frenchGrade": "6c",
+    "grade": "E3 3c,5c,",
     "name": "Great North Road",
     "section": "East Wing"
   },
   {
-    "grade": "E3 5c **",
+    "frenchGrade": "6c",
+    "grade": "E3 5c",
     "name": "Contrabrand",
     "section": "East Wing"
   },
   {
-    "grade": "E3 5c,4a **",
+    "frenchGrade": "6c",
+    "grade": "E3 5c,4a",
     "name": "Shanghai Corner",
     "section": "East Wing"
   },
   {
-    "grade": "E2 4c,6a *",
+    "frenchGrade": "6b",
+    "grade": "E2 4c,6a",
     "name": "Rock Island Line",
     "section": "East Wing"
   },
   {
-    "grade": "E1 4c, 5b *",
+    "frenchGrade": "6a",
+    "grade": "E1 4c, 5b",
     "name": "Dream Of Fair To Middling Women",
     "section": "East Wing"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c, 4b",
     "name": "Goulding Route",
     "section": "East Wing"
   },
   {
-    "grade": "E4 6a **",
+    "frenchGrade": "7a",
+    "grade": "E4 6a",
     "name": "Graceland",
     "section": "East Wing"
   },
   {
-    "grade": "E1 5b **",
+    "frenchGrade": "6a",
+    "grade": "E1 5b",
     "name": "Setanta",
     "section": "East Wing"
   },
   {
+    "frenchGrade": "3",
     "grade": "M",
     "name": "Wim",
     "section": "Witality Slab"
   },
   {
+    "frenchGrade": "3",
     "grade": "D",
     "name": "Wigour",
     "section": "Witality Slab"
   },
   {
+    "frenchGrade": "5",
     "grade": "S",
     "name": "Witality",
     "section": "Witality Slab"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b,4a",
     "name": "Sculpturesque",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b",
     "name": "Land's End",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "E3 5c,5c **",
+    "frenchGrade": "6c",
+    "grade": "E3 5c,5c",
     "name": "Silent Movie",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "E4 6a, 5b ***",
+    "frenchGrade": "7a",
+    "grade": "E4 6a, 5b",
     "name": "Lifeline",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "7a",
     "grade": "E4 6a",
     "name": "Deadlines",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "E1 5a,5b, ***",
+    "frenchGrade": "6a",
+    "grade": "E1 5a,5b,",
     "name": "Cornish Rhapsody",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 3c,4a,",
     "name": "Cornellow",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "HVS 5a,4c, **",
+    "frenchGrade": "5+",
+    "grade": "HVS 5a,4c,",
     "name": "Freebird",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "E3 5a,6b **",
+    "frenchGrade": "6c",
+    "grade": "E3 5a,6b",
     "name": "Blue Moon",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "HVS 4a,4c **",
+    "frenchGrade": "5+",
+    "grade": "HVS 4a,4c",
     "name": "Cuchulainn Groove",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4b,4c,",
     "name": "Alien's Way",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "E1 5b *",
+    "frenchGrade": "6a",
+    "grade": "E1 5b",
     "name": "FISSURE MacUALGAIRG",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Little Eiger",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "S",
     "name": "Scramble",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c,4b",
     "name": "Home Growers",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Xanthos",
     "section": "Upper Cliffs"
   },
   {
-    "grade": "HVS 5a **",
+    "frenchGrade": "5+",
+    "grade": "HVS 5a",
     "name": "High Exposure",
     "section": "Upper Cliffs"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Woodside",
     "section": "Hobnail Buttress"
   },
   {
-    "grade": "HS 3c,4a **",
+    "frenchGrade": "5",
+    "grade": "HS 3c,4a",
     "name": "Pyramid Route",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD",
     "name": "Clinker",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "S 4a",
     "name": "Mugger",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "HS 4b",
     "name": "Using Nomadic Types",
     "section": "Hobnail Buttress"
   },
   {
-    "grade": "HS 3c,4b *",
+    "frenchGrade": "5",
+    "grade": "HS 3c,4b",
     "name": "Hobnail Chimney",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "4+",
     "grade": "VD",
     "name": "Slag",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "S",
     "name": "Twin Cracks",
     "section": "Hobnail Buttress"
   },
   {
-    "grade": "S  *",
+    "frenchGrade": "5",
+    "grade": "S",
     "name": "Pine Tree Cracks",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "3",
     "grade": "D",
     "name": "Slab And Cantilever",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "3",
     "grade": "D",
     "name": "Gealaras",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5a",
     "name": "Hobnail Slabs",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Hobnail Groove",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5+",
     "grade": "HVS 5b",
     "name": "Hobnail Cracks",
     "section": "Hobnail Buttress"
   },
   {
+    "frenchGrade": "5",
     "grade": "VS 4c",
     "name": "Coriver Youth",
     "section": "Hobnail Buttress"
