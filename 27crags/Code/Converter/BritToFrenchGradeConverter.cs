@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace _27crags.Code.Converter
 {
-    public class BritGradeConverter : IGradeConverter
+    public class BritToFrenchGradeConverter : IGradeConverter
     {
         private Dictionary<String, String> britToFrenchConverstionChart = new Dictionary<String, String>()
             {
@@ -181,6 +181,11 @@ namespace _27crags.Code.Converter
             }
 
             throw new MissingMemberException("Cant Find the grade");
+        }
+
+        public string NormalizeGrade(string grade)
+        {
+            return grade.Trim().Split(' ')[0];
         }
     }
 

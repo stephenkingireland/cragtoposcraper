@@ -21,7 +21,7 @@ namespace _27crags.Code.Injector
         }
 
 
-        private static void InjectToJavascript(string jsonString, string fileName)
+        private void InjectToJavascript(string jsonString, string fileName)
         {
             var fullFileName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\", fileName + ".js");
             var fullTemplateName = Path.Combine(Environment.CurrentDirectory, @"Data\javascript\templates\", "inputTempate.js");

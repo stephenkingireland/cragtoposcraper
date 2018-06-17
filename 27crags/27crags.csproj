@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Climb.cs" />
-    <Compile Include="Code\Converter\BritGradeConverter.cs" />
+    <Compile Include="Code\Converter\BritToFrenchGradeConverter.cs" />
     <Compile Include="Code\Converter\IGradeConverter.cs" />
     <Compile Include="Code\Extractor\ClimbExtractorBase.cs" />
     <Compile Include="Code\Extractor\FileExtractor.cs" />

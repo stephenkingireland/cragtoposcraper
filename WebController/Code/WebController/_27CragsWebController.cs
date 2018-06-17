@@ -29,24 +29,38 @@ namespace WebController.Code
 
         public IEnumerable<Climb._27CragsClimb> GetClimbsOnPage()
         {
-            var climbRowSelector = new WindowSelectorProperty() { Pattern = properties.ClimbRowSelector};
-
-            var climbs = new List<Climb._27CragsClimb>();
-
-            var pagination = new _27CragsPagination(window);
-
-            do
-            {
-                var rows = window.FindAll(climbRowSelector);
-
-                foreach (var row in rows)
-               {
-                   climbs.Add(GetClimb(row));
-               }
-            } while (pagination.HasPagination() && pagination.NextPage());
 
 
-            return climbs;
+
+            ///Fix This
+            window.RunJS("");
+            return new List<Climb._27CragsClimb>();
+
+
+
+
+
+
+
+
+//            var climbRowSelector = new WindowSelectorProperty() { Pattern = properties.ClimbRowSelector};
+
+ //           var climbs = new List<Climb._27CragsClimb>();
+
+ //           var pagination = new _27CragsPagination(window);
+
+ //           do
+//            {
+ //               var rows = window.FindAll(climbRowSelector);
+
+//                foreach (var row in rows)
+ //              {
+ //                  climbs.Add(GetClimb(row));
+ //              }
+ //           } while (pagination.HasPagination() && pagination.NextPage());
+
+
+//            return climbs;
         }
 
         private Climb._27CragsClimb GetClimb(IWebElement row)

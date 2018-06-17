@@ -19,7 +19,8 @@ namespace _27crags
             var program = new Program();
 
 
-            program.Scrape();
+            //program.Scrape();
+            program.Convert();
 
             //program.Run();
         }
@@ -39,7 +40,7 @@ namespace _27crags
         public void Run()
         {
             var injector = new JSInjector();
-            var converter = new BritGradeConverter();
+            var converter = new BritToFrenchGradeConverter();
 
             DoWork(new JsonFileExtractor(), new JsonClimbExtractor(converter), injector);
             DoWork(new TextFileExtractor(), new TextClimbExtractor(converter), injector);
@@ -57,6 +58,37 @@ namespace _27crags
                 injector.Inject(climbs, fileName);
             }
 
+        }
+
+        public void Convert()
+        {
+
+            var extractor = new JsonFileExtractor();
+
+            var climb = new JsonClimbExtractor(new BritToFrenchGradeConverter());
+           
+
+            foreach (var fileName in extractor.ExtractFilePaths())
+            {
+                var climbs = ConvertClimbs(extractor, climb, fileName);
+
+                using (var writer = File.CreateText(fileName))
+                {
+                    writer.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(climbs));
+                }
+
+            }
+
+        }
+
+        public IEnumerable<Climb> ConvertClimbs(JsonFileExtractor fileExtract, JsonClimbExtractor climbExtract, string fileName)
+
+        {
+            var climbData = fileExtract.ExtractData(fileName);
+
+            var extractedClimbs  = climbExtract.ExtractClimbs(climbData);
+
+            return extractedClimbs;
         }
 
         public IEnumerable<Climb> GetClimbs(IFileExtractor fileExtract, IClimbExtractor climbExtract, string fileName)

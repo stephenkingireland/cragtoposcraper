@@ -8,6 +8,7 @@ namespace _27crags.Code.Converter
         bool HasGrade(string line);
         string GetGrade(string line);
         int GradePosition(String line, string grade);
+        string NormalizeGrade(string grade);
     }
 
 }

@@ -17,13 +17,13 @@ namespace _27crags.Code.Extractor
             return ConvertClimbs(rawClimbs);
         }
 
-        private IEnumerable<Climb> ConvertClimbs(IEnumerable<Climb> rawClimbs)
+        public IEnumerable<Climb> ConvertClimbs(IEnumerable<Climb> rawClimbs)
         {
             var convertedClimbs = new List<Climb>();
 
             foreach (var climb in rawClimbs)
             {
-                var grade = climb.grade.Trim().Split(' ')[0];
+                var grade = converter.NormalizeGrade(climb.grade);
 
                 if (climb.grade.StartsWith("f"))
                 {
