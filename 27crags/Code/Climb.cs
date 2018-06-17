@@ -11,5 +11,7 @@ namespace _27crags
         public String name;
         
         public String section;
+
+        public String type;
     }
 }
