@@ -28,9 +28,21 @@ namespace _27crags.Code.Extractor
                 return Directory.GetFiles(WorkingDirectory, "*" + FileExtention);
         }
 
+
+
         public string ExtractData(string fileName)
         {
             return File.ReadAllText(fileName);
+        }
+
+        public void SaveData(string filename, string data)
+        {
+            File.WriteAllText(SaveFilePath(filename), data);
+        }
+
+        private string SaveFilePath(string fileName)
+        {
+            return Path.Combine(WorkingDirectory, fileName + FileExtention);
         }
     }
 }

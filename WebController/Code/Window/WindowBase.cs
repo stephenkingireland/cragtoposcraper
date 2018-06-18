@@ -58,10 +58,11 @@ namespace WebController.Code.Window
             return FindAll(property).Select(i => i.Text);
         }
 
-        public String RunJS(String jsToRun)
+        public T RunJS<T>(String jsToRun)
         {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            return (string)js.ExecuteScript(jsToRun);
+
+
+            return (T)((IJavaScriptExecutor)driver).ExecuteScript(jsToRun);
 
         }
 

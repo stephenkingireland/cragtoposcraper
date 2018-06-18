@@ -4,6 +4,7 @@ namespace _27crags.Code.Extractor
 {
     public interface IFileExtractor
     {
+        void SaveData(string data, string fileName);
         string ExtractData(string data);
 
         IEnumerable<string> ExtractFilePaths();

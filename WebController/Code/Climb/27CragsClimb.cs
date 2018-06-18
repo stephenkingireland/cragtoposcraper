@@ -8,10 +8,10 @@ namespace WebController.Code.Climb
 {
     public class _27CragsClimb
     {
-        public string Name      { get; set; }
-        public string Grade     { get; set; }
-        public string Type   { get; set; }
-        public string Sector { get; internal set; }
+        public string name      { get; set; }
+        public string grade     { get; set; }
+        public string type   { get; set; }
+        public string sector { get; set; }
     }
 
     public enum ClimbType

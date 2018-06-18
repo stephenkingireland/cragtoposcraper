@@ -28,6 +28,12 @@ namespace WebController.Code._27Crags
 
         public string ClimbNameSelector { get => ".route-block a"; }
         public string ClimbGradeSelector { get => "td + td"; }
+
+        internal string GetCragListUrl(string countryName, int page)
+        {
+            return String.Format("https://27crags.com/countries/{0}/descending/by/favourite_count/page/{1}", countryName, page).Replace(" ", "-");
+        }
+
         public string ClimbSectorSelector { get => ".stxt"; }
         public string ClimbTypeSelector { get => "td + td + td"; }
 

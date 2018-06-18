@@ -4,12 +4,14 @@ using WebController.Code.Window;
 using System.Linq;
 using OpenQA.Selenium;
 using System;
+using WebController.Scripts;
 
 namespace WebController.Code
 {
     public class _27CragsWebController : WebControllerBase
     {
         _27CragsProperties properties = new _27CragsProperties();
+        ScriptManager scriptManager = new ScriptManager();
 
         public _27CragsWebController(WindowBase windowBase) : base(windowBase)
         {
@@ -25,90 +27,55 @@ namespace WebController.Code
             window.GoTo(new WindowProperty() { Pattern = properties.GetCragUrl(cragName) });
         }
 
+        public IEnumerable<Climb._27CragsCrag> GetCrags()
+        {
+            var cragNames = new List<Climb._27CragsCrag>();
+            var run = true;
+            var count = 1;
+
+            do
+            {
+                window.GoTo(new WindowProperty() { Pattern = properties.GetCragListUrl("Ireland", count) });
+
+                var rawData = window.RunJS<IEnumerable<Object>>(scriptManager.GetScript("_27CragsCragsScraper"));
+
+                cragNames.AddRange(
+                    rawData.Select(obj => new Climb._27CragsCrag
+                    {
+                        name = ((string)(obj as IDictionary<String, Object>)["name"]).Trim(),
+                        url = ((string)(obj as IDictionary<String, Object>)["url"]).Trim().Replace("/crags/", "")
+                    })
+                );
+
+                if(rawData.Count() == 0)
+                {
+                    run = false;
+                }
+
+                count++;
+            } while (run);
 
 
+            return cragNames;
+        }
+
+
+        //This is a bad method
         public IEnumerable<Climb._27CragsClimb> GetClimbsOnPage()
         {
 
+            var climbs = window.RunJS<IEnumerable<Object>>(scriptManager.GetScript("_27CragsClimbsScraper"));
 
 
-            ///Fix This
-            window.RunJS("");
-            return new List<Climb._27CragsClimb>();
-
-
-
-
-
-
-
-
-//            var climbRowSelector = new WindowSelectorProperty() { Pattern = properties.ClimbRowSelector};
-
- //           var climbs = new List<Climb._27CragsClimb>();
-
- //           var pagination = new _27CragsPagination(window);
-
- //           do
-//            {
- //               var rows = window.FindAll(climbRowSelector);
-
-//                foreach (var row in rows)
- //              {
- //                  climbs.Add(GetClimb(row));
- //              }
- //           } while (pagination.HasPagination() && pagination.NextPage());
-
-
-//            return climbs;
-        }
-
-        private Climb._27CragsClimb GetClimb(IWebElement row)
-        {
-            var climb = new Climb._27CragsClimb();
-
-            var climbNameSelector = new WindowSelectorProperty() { Pattern = properties.ClimbNameSelector };
-
-            climb.Name = window.Find(climbNameSelector, row).Text;
-
-
-            var climbGradeSelector = new WindowSelectorProperty() { Pattern = properties.ClimbGradeSelector };
-
-            climb.Grade = window.Find(climbGradeSelector, row).Text;
-
-            var climbSectorSelector = new WindowSelectorProperty() { Pattern = properties.ClimbSectorSelector };
-
-            climb.Sector = window.Find(climbSectorSelector, row).Text;
-
-            var climbTypeSelector = new WindowSelectorProperty() { Pattern = properties.ClimbTypeSelector };
-
-            climb.Type = window.Find(climbTypeSelector, row).Text;
-
-            return climb;
-
-        }
-
-        
-
-        public IEnumerable<string> GetClimbNames()
-        {
-            var climbNameArea = new WindowProperty() { Pattern = properties.ClimbNameSelector, SearchType = WindowPropertySearchType.Selector };
-
-            var climbNames = window.GetTexts(climbNameArea).ToList();
-
-            var pagination = new _27CragsPagination(window);
-
-            if (pagination.HasPagination())
+            return climbs.Select(obj => new Climb._27CragsClimb
             {
-                while (pagination.NextPage())
-                {
-                    climbNames = climbNames.Union(window.GetTexts(climbNameArea)).ToList();
-                }
-            }
+                name = ((string)(obj as IDictionary<String,Object>)["name"]).Trim(),
+                grade = ((string)(obj as IDictionary<String, Object>)["grade"]).Trim(),
+                sector = ((string)(obj as IDictionary<String, Object>)["sector"]).Trim(),
+                type = ((string)(obj as IDictionary<String, Object>)["type"]).Trim()
 
-            return climbNames.Where(i => !string.IsNullOrWhiteSpace(i));
+            });
         }
-
     }
 
 }

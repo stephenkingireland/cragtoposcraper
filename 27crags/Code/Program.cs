@@ -19,8 +19,8 @@ namespace _27crags
             var program = new Program();
 
 
-            //program.Scrape();
-            program.Convert();
+            program.Scrape();
+            //program.Convert();
 
             //program.Run();
         }
@@ -30,9 +30,22 @@ namespace _27crags
 
             _27CragsWebController controller = new _27CragsWebController(new ChromeWindow());
 
-            controller.GotoCragPage("dalkey-quarry");
+            var crags = controller.GetCrags();
 
-            var names = controller.GetClimbsOnPage();
+            var climbs = new List<WebController.Code.Climb._27CragsClimb>();
+
+            foreach(var crag in crags)
+            {
+                controller.GotoCragPage(crag.url);
+                climbs.AddRange(controller.GetClimbsOnPage());
+
+            }
+
+
+            
+
+
+
 
             controller.Cleanup();
         }
