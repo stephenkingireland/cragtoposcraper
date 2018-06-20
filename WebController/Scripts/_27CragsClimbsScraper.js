@@ -1,7 +1,7 @@
 ﻿
 
 var climbList = []
-if (window.config.rowsCopy) (
+if (window.config !== undefined) (
 
     $(window.config.rowsCopy).each(
         function (i, row) {
