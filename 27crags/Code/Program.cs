@@ -32,20 +32,15 @@ namespace _27crags
 
             var crags = controller.GetCrags();
 
-            var climbs = new List<WebController.Code.Climb._27CragsClimb>();
 
             foreach(var crag in crags)
             {
                 controller.GotoCragPage(crag.url);
-                climbs.AddRange(controller.GetClimbsOnPage());
+                crag.climbs = controller.GetClimbsOnPage();
 
             }
-
-
+            new JsonFileExtractor().SaveData("IrelandClimbData", Newtonsoft.Json.JsonConvert.SerializeObject(crags));
             
-
-
-
 
             controller.Cleanup();
         }

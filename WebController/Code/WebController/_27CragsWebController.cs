@@ -32,7 +32,7 @@ namespace WebController.Code
             var cragNames = new List<Climb._27CragsCrag>();
             var run = true;
             var count = 1;
-
+            
             do
             {
                 window.GoTo(new WindowProperty() { Pattern = properties.GetCragListUrl("Ireland", count) });
@@ -59,8 +59,6 @@ namespace WebController.Code
             return cragNames;
         }
 
-
-        //This is a bad method
         public IEnumerable<Climb._27CragsClimb> GetClimbsOnPage()
         {
 

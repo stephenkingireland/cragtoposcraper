@@ -10,6 +10,8 @@ namespace WebController.Code.Climb
     {
         public string name      { get; set; }
         public string url     { get; set; }
+        public IEnumerable<_27CragsClimb> climbs     { get; set; }
+        
     }
 
 }
