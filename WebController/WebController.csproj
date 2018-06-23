@@ -73,6 +73,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\_27CragsAreaScraper.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\_27CragsCragsScraper.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

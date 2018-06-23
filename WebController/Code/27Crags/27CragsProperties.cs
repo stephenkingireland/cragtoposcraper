@@ -37,6 +37,17 @@ namespace WebController.Code._27Crags
         public string ClimbSectorSelector { get => ".stxt"; }
         public string ClimbTypeSelector { get => "td + td + td"; }
 
+        public string GetAreaUrl(string key)
+        {
+            if(!key.Equals("NorthIre"))
+            {
+                throw new NotImplementedException("Only returns northern ireland right now");
+            }
+
+            //TODO: Change this for a more DI approch
+            return @"https://27crags.com/crags#54.782191745553554,-7.672295743510176,8";
+        }
+
         public string GetCragUrl(String cragName)
         {
             return String.Format("https://27crags.com/crags/{0}/routelist", cragName).Replace(" ", "-");

@@ -29,25 +29,51 @@ namespace WebController.Code
 
         public IEnumerable<Climb._27CragsCrag> GetCrags()
         {
-            var cragNames = new List<Climb._27CragsCrag>();
+
+            var crags =  ScrapeGragsByCountry();
+
+            var areaCrags = ScrapeCragsByArea();
+
+
+            crags = crags.Concat(areaCrags);
+
+            //Removing any duplicates
+            crags = crags.GroupBy(x => x.name).Select(x => x.FirstOrDefault()).ToList();
+
+            return crags;
+
+        }
+
+        private IEnumerable<Climb._27CragsCrag> ScrapeCragsByArea()
+        {
+            window.GoTo(new WindowProperty() { Pattern = properties.GetAreaUrl("NorthIre") });
+
+            var rawData = new List<Object>();
+
+            while(rawData.Count() == 0)
+            {
+                rawData = window.RunJS<IEnumerable<Object>>(scriptManager.GetScript("_27CragsAreaScraper")).ToList();
+            }
+
+
+            return ConvertToCragObject( rawData);
+        }
+
+        private IEnumerable<Climb._27CragsCrag> ScrapeGragsByCountry()
+        {
+            var crags = new List<Climb._27CragsCrag>();
             var run = true;
             var count = 1;
-            
+
             do
             {
                 window.GoTo(new WindowProperty() { Pattern = properties.GetCragListUrl("Ireland", count) });
 
                 var rawData = window.RunJS<IEnumerable<Object>>(scriptManager.GetScript("_27CragsCragsScraper"));
 
-                cragNames.AddRange(
-                    rawData.Select(obj => new Climb._27CragsCrag
-                    {
-                        name = ((string)(obj as IDictionary<String, Object>)["name"]).Trim(),
-                        url = ((string)(obj as IDictionary<String, Object>)["url"]).Trim().Replace("/crags/", "")
-                    })
-                );
+                crags.AddRange(ConvertToCragObject(rawData));
 
-                if(rawData.Count() == 0)
+                if (rawData.Count() == 0)
                 {
                     run = false;
                 }
@@ -56,7 +82,18 @@ namespace WebController.Code
             } while (run);
 
 
-            return cragNames;
+            return crags;
+        }
+
+        private IEnumerable<Climb._27CragsCrag> ConvertToCragObject(IEnumerable<object> rawData)
+        {
+            return
+                                 rawData.Select(obj => new Climb._27CragsCrag
+                                 {
+                                     name = ((string)(obj as IDictionary<String, Object>)["name"]).Trim(),
+                                     url = ((string)(obj as IDictionary<String, Object>)["url"]).Trim().Replace("/crags/", "")
+                                 });
+                           
         }
 
         public IEnumerable<Climb._27CragsClimb> GetClimbsOnPage()
