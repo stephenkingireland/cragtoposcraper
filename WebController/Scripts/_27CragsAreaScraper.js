@@ -1,19 +1,20 @@
 ﻿
 
 
-    var cragList = []
+var cragList = []
+var elements = $("#mw-content-text").children;
 
-    $('.crag-card a').each(
-        function (i, row) {
-            var crag = {};
+for (i = 0; i < elements.length; i++) {
 
-            crag.name = $(row).find(".name").html();
-            crag.url = $(row).attr("href");
 
-            cragList.push(crag);
+    var crag = {};
 
-        });
+    crag.name = $(row).find(".name").html();
+    crag.url = $(row).attr("href");
 
+    cragList.push(crag);
+
+}
 
     return cragList;
 

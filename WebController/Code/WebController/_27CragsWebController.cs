@@ -52,7 +52,7 @@ namespace WebController.Code
 
             while(rawData.Count() == 0)
             {
-                rawData = window.RunJS<IEnumerable<Object>>(scriptManager.GetScript("_27CragsAreaScraper")).ToList();
+                rawData = window.RunJS<IEnumerable<Object>>(scriptManager.GetScript("irishWikiScraper")).ToList();
             }
 
 
